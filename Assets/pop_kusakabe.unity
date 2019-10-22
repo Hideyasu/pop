@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4458308716259635210, guid: 0306e5f8e57c14b838df9662e2551735,
     type: 3}
+  explosionPrefab: {fileID: 100000, guid: 4c5a17ca1f9fec84e941441ebb8be079, type: 3}
 --- !u!212 &259225125
 SpriteRenderer:
   m_ObjectHideFlags: 0

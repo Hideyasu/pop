@@ -1,0 +1,8 @@
+Assets/SCI-FI filter=lfs diff=lfs merge=lfs -text
+UI filter=lfs diff=lfs merge=lfs -text
+Pack filter=lfs diff=lfs merge=lfs -text
+Pro/Resources/PSD/Components.psd filter=lfs diff=lfs merge=lfs -text
+Pro/Resources/PSD/Demo filter=lfs diff=lfs merge=lfs -text
+Scence-OK.psd filter=lfs diff=lfs merge=lfs -text
+Assets/SCI-FI[[:space:]]UI[[:space:]]Pack[[:space:]]Pro/Resources/PSD/Components.psd filter=lfs diff=lfs merge=lfs -text
+Assets/SCI-FI[[:space:]]UI[[:space:]]Pack[[:space:]]Pro/Resources/PSD/Demo[[:space:]]Scence-OK.psd filter=lfs diff=lfs merge=lfs -text

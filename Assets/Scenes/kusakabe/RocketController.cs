@@ -6,6 +6,7 @@ public class RocketController : MonoBehaviour
 {
 
     public GameObject bulletPrefab;
+    public GameObject explosionPrefab;
 
     void Update()
     {
@@ -29,6 +30,7 @@ public class RocketController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(coll.gameObject);
         Destroy(gameObject);
         SceneManager.LoadScene("GameOver");

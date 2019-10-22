@@ -6,7 +6,6 @@ public class RockController : MonoBehaviour
 
     float fallSpeed_x;
     float fallSpeed_y;
-
     float rotSpeed;
 
     void Start()
