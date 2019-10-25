@@ -1046,7 +1046,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: POWER OF POWER
+  m_Text: Circumvent
 --- !u!114 &4243687269940054356
 MonoBehaviour:
   m_ObjectHideFlags: 0
