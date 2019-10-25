@@ -6,7 +6,7 @@ public class UIController : MonoBehaviour
 {
     GameObject scoreText;
 
-    public static int Score=0;
+    public static int Score;
 
     public void AddScore()
     {
@@ -15,6 +15,7 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
+        Score = 0;
         this.scoreText = GameObject.Find("Score");
     }
 
