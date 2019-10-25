@@ -38,8 +38,14 @@ public class RockGenerator : MonoBehaviour
     public GameObject rockPrefab;
     public GameObject payloadPrefab;
     public GameObject rocketPrefab;
+
+    GameObject Prefab;
+
     int Debris_ID;
     string Debris_type;
+    string Debris_name;
+    string Debris_owner;
+    string Debris_launch_site;
     public int debrisLength = 15000;
     Debris debrises;
 
@@ -50,13 +56,21 @@ public class RockGenerator : MonoBehaviour
         TextAsset textasset = new TextAsset();
         textasset = Resources.Load("deb", typeof(TextAsset)) as TextAsset;
         debrises = JsonUtility.FromJson<Debris>(textasset.text);
-        //Debug.Log(debrises.DEBRIS[1].LAUNCH_SITE);
+        //Debug.Log("Launch site:"+debrises.DEBRIS[1].LAUNCH_SITE);
+        //Debug.Log("Object name:" + debrises.DEBRIS[1].OBJECT_NAME);
+        //Debug.Log("period:" + debrises.DEBRIS[1].PERIOD);
+        //Debug.Log("owner:" + debrises.DEBRIS[1].OWNER);
+
+
         //Debug.Log(debrises.DEBRIS.Length);
         this.Debris_ID = Mathf.FloorToInt(Random.value * debrises.DEBRIS.Length);
         this.Debris_type = debrises.DEBRIS[this.Debris_ID].OBJECT_TYPE;
-        Debug.Log(Debris_type);
+        this.Debris_name = debrises.DEBRIS[this.Debris_ID].OBJECT_NAME;
+        this.Debris_owner = debrises.DEBRIS[this.Debris_ID].OPERATIONAL_STATUS;
+        this.Debris_launch_site = debrises.DEBRIS[this.Debris_ID].LAUNCH_SITE;
 
 
+        //Debug.Log(Debris_type);
 
         InvokeRepeating("GenPay", 1, 5.0f);
     }
@@ -90,19 +104,28 @@ public class RockGenerator : MonoBehaviour
 
         Debris_ID = Mathf.FloorToInt(Random.value * debrisLength);
         Debris_type = debrises.DEBRIS[this.Debris_ID].OBJECT_TYPE;
+
         if (Debris_type == "PAYLOAD")
         {
-            Instantiate(payloadPrefab, new Vector3(pos_x, pos_y, 0), Quaternion.identity);
+            Prefab = payloadPrefab;
         }
         else if (Debris_type == "DEBRIS")
         {
-            Instantiate(rockPrefab, new Vector3(pos_x, pos_y, 0), Quaternion.identity);
+            Prefab = rockPrefab;
         }
         else if (Debris_type == "ROCKET BODY")
         {
-            Instantiate(rocketPrefab, new Vector3(pos_x, pos_y, 0), Quaternion.identity);
+            Prefab = rocketPrefab;
         }
-    }
 
+        GameObject controller = Instantiate(Prefab, new Vector3(pos_x, pos_y, 0), Quaternion.identity);
+
+        //RockControllerインスタンス作る　スクリプトにアクセス
+        RockController c = controller.GetComponent<RockController>();
+        c.SetDebrisType(Debris_type);
+        c.SetDebrisName(Debris_name);
+        c.SetDebrisOwner(Debris_owner);
+        c.SetDebrisLanchSite(Debris_launch_site);
+    }
 
 }
