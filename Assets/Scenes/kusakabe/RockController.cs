@@ -8,6 +8,11 @@ public class RockController : MonoBehaviour
     float fallSpeed_y;
     float rotSpeed;
 
+    string debris_type;
+    string debris_name;
+    string debris_owner;
+    string debris_launch_site;
+
     void Start()
     {
         this.fallSpeed_x = 0.01f + 0.1f * (Random.value-0.5f)*2;
@@ -28,4 +33,47 @@ public class RockController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void SetDebrisType(string dt)
+    {
+        debris_type = dt;
+    }
+
+    public string GetDebrisType()
+    {
+        return debris_type;
+    }
+
+    public void SetDebrisName(string dt)
+    {
+        debris_name = dt;
+    }
+
+    public string GetDebrisName()
+    {
+        return debris_name;
+    }
+
+    public void SetDebrisOwner(string dt)
+    {
+        debris_owner = dt;
+    }
+
+    public string GetDebrisOwner()
+    {
+        return debris_owner;
+    }
+
+    public void SetDebrisLanchSite(string dt)
+    {
+        debris_launch_site = dt;
+    }
+
+    public string GetDebrisLaunchSite()
+    {
+        return debris_launch_site;
+    }
+
+
+
 }
